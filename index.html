@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>روابطي</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Tajawal:wght@400;500;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #0b0b0c;
+    --bg-soft: #121213;
+    --ink: #ede9e2;
+    --muted: #8a867c;
+    --line: #232320;
+    --gold: #c9a227;
+    --gold-soft: rgba(201,162,39,0.14);
+  }
+  *{ box-sizing: border-box; }
+  html,body{
+    margin:0; padding:0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Tajawal','Inter', sans-serif;
+    min-height:100vh;
+  }
+  body{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding: 32px 16px 64px;
+    position:relative;
+    overflow-x:hidden;
+  }
+
+  /* ambient glow */
+  body::before{
+    content:"";
+    position:fixed;
+    top:-20%; right:-10%;
+    width:60vw; height:60vw;
+    background: radial-gradient(circle, rgba(201,162,39,0.10), transparent 65%);
+    pointer-events:none;
+    z-index:0;
+  }
+
+  .card{
+    position:relative;
+    z-index:1;
+    width:100%;
+    max-width: 420px;
+    text-align:center;
+  }
+
+  .avatar-wrap{
+    position:relative;
+    width:104px; height:104px;
+    margin: 0 auto 22px;
+  }
+  .avatar-ring{
+    position:absolute; inset:0;
+    border-radius:50%;
+    border: 1px solid var(--gold);
+    opacity:0.55;
+    animation: spin 14s linear infinite;
+  }
+  .avatar-ring::before{
+    content:"";
+    position:absolute;
+    top:-2px; left:50%;
+    width:5px; height:5px;
+    margin-right:-2.5px;
+    background: var(--gold);
+    border-radius:50%;
+    box-shadow: 0 0 8px 2px var(--gold);
+  }
+  @keyframes spin{ to{ transform: rotate(360deg); } }
+
+  .avatar{
+    position:absolute;
+    inset:8px;
+    border-radius:50%;
+    background: var(--bg-soft);
+    border:1px solid var(--line);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-family:'Fraunces', serif;
+    font-size:30px;
+    color: var(--gold);
+    overflow:hidden;
+  }
+  /* لو حبيت تحط صورة بدل الحرف، استبدل محتوى .avatar بـ: <img src="صورتك.jpg"> */
+
+  h1{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    font-size: clamp(26px, 6vw, 32px);
+    margin: 0 0 6px;
+    letter-spacing: 0.2px;
+  }
+  .tagline{
+    color: var(--muted);
+    font-size: 14.5px;
+    margin: 0 0 30px;
+    line-height:1.7;
+  }
+
+  .links{
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+  }
+
+  .link-item{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:14px;
+    padding: 16px 20px;
+    background: var(--bg-soft);
+    border:1px solid var(--line);
+    border-radius:10px;
+    text-decoration:none;
+    color: var(--ink);
+    transition: border-color .25s ease, transform .2s ease, background .25s ease;
+  }
+  .link-item:hover{
+    border-color: var(--gold);
+    background: var(--gold-soft);
+    transform: translateY(-2px);
+  }
+  .link-item:focus-visible{
+    outline: 2px solid var(--gold);
+    outline-offset: 2px;
+  }
+
+  .link-label{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    font-size:15.5px;
+    font-weight:500;
+  }
+  .icon{
+    width:34px; height:34px;
+    border-radius:9px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex-shrink:0;
+  }
+  .icon svg{ width:19px; height:19px; }
+
+  .arrow{
+    color: var(--muted);
+    font-size:15px;
+    transition: transform .25s ease, color .25s ease;
+  }
+  .link-item:hover .arrow{
+    transform: translateX(-4px);
+    color: var(--gold);
+  }
+
+  footer{
+    margin-top:36px;
+    color: var(--muted);
+    font-size:12.5px;
+    letter-spacing:0.3px;
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    .avatar-ring{ animation:none; }
+    .link-item, .arrow{ transition:none; }
+  }
+</style>
+</head>
+<body>
+
+  <div class="card">
+    <div class="avatar-wrap">
+      <div class="avatar-ring"></div>
+      <div class="avatar">N</div>
+      <!-- غيّر الحرف "أ" لأول حرف من اسمك، أو ضع صورة داخل .avatar -->
+    </div>
+
+    <h1>Nzar Ali</h1>
+    <p class="tagline">متداول أسعى للاحتراف والوصول للحسابات الممولة، بخطى ثابتة ونتائج تتكلم بدل الكلام</p>
+
+    <div class="links">
+
+      <a class="link-item" href="https://www.instagram.com/nzarali295?igsh=MXNnNXBvZDd2Zmk0aA==" target="_blank" rel="noopener">
+        <span class="link-label">
+          <span class="icon" style="background:radial-gradient(circle at 30% 110%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);">
+            <svg viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="6" stroke="white" stroke-width="2"/><circle cx="12" cy="12" r="4.5" stroke="white" stroke-width="2"/><circle cx="17.2" cy="6.8" r="1.3" fill="white"/></svg>
+          </span>
+          إنستقرام
+        </span>
+        <span class="arrow">←</span>
+      </a>
+
+      <a class="link-item" href="https://x.com/NzarAli411161" target="_blank" rel="noopener">
+        <span class="link-label">
+          <span class="icon" style="background:#000000;">
+            <svg viewBox="0 0 24 24" fill="white"><path d="M18.9 2.5h3.1l-6.8 7.8 8 10.7h-6.3l-4.9-6.4-5.6 6.4H3.3l7.3-8.3-7.7-10.2h6.4l4.5 5.9zM17.8 19.3h1.7L8.6 4.1H6.8z"/></svg>
+          </span>
+          تويتر / X
+        </span>
+        <span class="arrow">←</span>
+      </a>
+
+      <a class="link-item" href="https://t.me/nzar295" target="_blank" rel="noopener">
+        <span class="link-label">
+          <span class="icon" style="background:#26A5E4;">
+            <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" fill="#26A5E4"/><path d="M17.5 7.2 15.6 17c-.14.63-.5.78-1.02.49l-2.82-2.08-1.36 1.31c-.15.15-.28.28-.57.28l.2-2.87 5.23-4.73c.23-.2-.05-.32-.35-.11l-6.46 4.07-2.78-.87c-.6-.19-.61-.6.13-.89l10.87-4.19c.5-.18.94.12.78.9z" fill="white"/></svg>
+          </span>
+          تلجرام
+        </span>
+        <span class="arrow">←</span>
+      </a>
+
+      <a class="link-item" href="#" target="_blank" rel="noopener">
+        <span class="link-label">
+          <span class="icon" style="background:#000000;">
+            <svg viewBox="0 0 24 24"><path d="M16.6 5.2c-.9-.8-1.4-1.9-1.5-3.2h-3v13.4c0 1.5-1.2 2.7-2.7 2.7-1.5 0-2.7-1.2-2.7-2.7s1.2-2.7 2.7-2.7c.3 0 .5 0 .8.1v-3c-.3 0-.5-.1-.8-.1-3.2 0-5.7 2.6-5.7 5.7s2.6 5.7 5.7 5.7 5.7-2.6 5.7-5.7V8.9c1.2.9 2.6 1.4 4.2 1.4V7.3c-.9 0-1.8-.3-2.5-.8-.1 0-.1-.1-.2-.1z" fill="#ff2e63"/><path d="M15.9 4.9c-.9-.8-1.4-1.9-1.5-3.2h-2.7v13.4c0 1.5-1.2 2.7-2.7 2.7-.9 0-1.7-.4-2.2-1.1-.7-.5-1.1-1.3-1.1-2.2 0-1.5 1.2-2.7 2.7-2.7.3 0 .5 0 .8.1v-2.7c-.3 0-.5-.1-.8-.1-3.2 0-5.7 2.6-5.7 5.7s2.6 5.7 5.7 5.7 5.7-2.6 5.7-5.7V8.6c1.2.9 2.6 1.4 4.2 1.4V7.1c-1.4 0-2.6-.7-3.4-1.6l-.1-.1z" fill="#00e5ff" opacity=".8"/><path d="M15.7 4.7c-.9-.8-1.4-1.9-1.5-3.2h-2.5v13.1c0 1.5-1.2 2.6-2.6 2.6-.8 0-1.6-.4-2.1-1-.7-.5-1.1-1.3-1.1-2.1 0-1.5 1.2-2.6 2.6-2.6.3 0 .5 0 .7.1V8.9c-.2 0-.5-.1-.7-.1-3.1 0-5.6 2.5-5.6 5.6s2.5 5.6 5.6 5.6 5.6-2.5 5.6-5.6V8.4c1.1.9 2.5 1.4 4.1 1.4V7.1c-1.4 0-2.5-.6-3.3-1.5l-.2-.1z" fill="white"/></svg>
+          </span>
+          تيك توك
+        </span>
+        <span class="arrow">←</span>
+      </a>
+
+      <a class="link-item" href="https://youtube.com/@nzarali295?si=dnAW01K4wVcEvSTK" target="_blank" rel="noopener">
+        <span class="link-label">
+          <span class="icon" style="background:#FF0000;">
+            <svg viewBox="0 0 24 24" fill="white"><path d="M9.8 15.5V8.5l6.1 3.5-6.1 3.5z"/></svg>
+          </span>
+          يوتيوب
+        </span>
+        <span class="arrow">←</span>
+      </a>
+
+      <a class="link-item" href="https://wa.me/qr/CV6327QOP5TGB1" target="_blank" rel="noopener">
+        <span class="link-label">
+          <span class="icon" style="background:#25D366;">
+            <svg viewBox="0 0 24 24" fill="white"><path d="M12 2C6.48 2 2 6.48 2 12c0 1.85.5 3.58 1.36 5.07L2 22l5.11-1.33C8.53 21.5 10.23 22 12 22c5.52 0 10-4.48 10-10S17.52 2 12 2zm0 18.13c-1.57 0-3.05-.43-4.32-1.18l-.31-.18-3.03.79.81-2.95-.2-.31A7.9 7.9 0 0 1 4.13 12c0-4.35 3.53-7.87 7.87-7.87S19.87 7.65 19.87 12 15.35 20.13 12 20.13zm4.32-5.9c-.24-.12-1.4-.69-1.61-.77-.22-.08-.38-.12-.54.12-.16.24-.62.77-.76.93-.14.16-.28.18-.52.06-.24-.12-1.01-.37-1.92-1.18-.71-.63-1.19-1.42-1.33-1.66-.14-.24-.01-.37.11-.49.11-.11.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.54-1.3-.74-1.78-.19-.46-.39-.4-.54-.4-.14-.01-.3-.01-.46-.01s-.42.06-.64.3c-.22.24-.85.83-.85 2.02 0 1.19.87 2.34.99 2.5.12.16 1.71 2.61 4.14 3.66.58.25 1.03.4 1.38.51.58.18 1.11.16 1.53.1.47-.07 1.4-.57 1.6-1.12.2-.55.2-1.02.14-1.12-.06-.1-.22-.16-.46-.28z"/></svg>
+          </span>
+          واتساب
+        </span>
+        <span class="arrow">←</span>
+      </a>
+
+      <!--
+        عشان تضيف منصة جديدة، انسخ الكتلة اللي فوق دي كاملة (من <a class="link-item"... لحد </a>)
+        وغيّر اسم المنصة والرابط (href="#") برابط حسابك الحقيقي.
+      -->
+
+    </div>
+
+    <footer>© 2026</footer>
+  </div>
+
+</body>
+</html>
